@@ -1,0 +1,10 @@
+extends ./layout.pug
+block content
+    .row
+        .col-md-12 
+            h1 INDEX
+            hr
+            ul.list-group
+            each val in list
+                li.list-group-item
+                    a(href="/detail/"+val._id,target='_blank') #{val.title}

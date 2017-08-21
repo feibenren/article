@@ -1,0 +1,13 @@
+extends ./layout.pug
+block content
+    .row
+        .col-md-12 
+            h1 LIST
+            a.btn.btn-primary(href="/add")  添加
+            hr
+            ul.list-group
+            each val in list
+                li.list-group-item.clearfix
+                    span.pull-left #{val.title}
+                    a.pull-right.btn.btn-primary.btn-xs(href='/update/'+val._id) 修改
+                    a.pull-right.btn.btn-danger.btn-xs(href='/delete/'+val._id) 删除
