@@ -5,7 +5,7 @@ block content
             form(method="post",action='/add')
                 .form-group
                     label 标题
-                    input.form-control(name='title',value='#{article.title}')
+                    input.form-control(name='title',value=article.title)
                 .form-group
                     label 正文
                     textarea.form-control(name='content') #{article.content}

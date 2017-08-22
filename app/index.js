@@ -1,4 +1,6 @@
 var express = require('express');
+var mongoose=require('mongoose');
+var mongodb_url='mongodb://rw1:rw1@106.14.174.65:27017/article';
 
 
 
@@ -46,6 +48,10 @@ app.get('/add', function(req, res) {
     res.render('add.pug', { page_title: '添加页' });
 });
 app.post('/add', function(req, res) {
+    const db = mongoose.createConnection(mongodb_url); //创建一个数据库连接
+    var articleModel=require('./model/article.js');
+    var articleEntity=new articleModel(req.body);
+    articleEntity.save();
     res.send(JSON.stringify(req.body));
 });
 //更新页
